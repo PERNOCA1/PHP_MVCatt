@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-use App\Model\PessoaDAO;
+use App\DAO\PessoaDAO;
 
 class PessoaModel
 {
