@@ -1,4 +1,9 @@
 <?php
+
+namespace App\DAO;
+
+use App\Model\ProdutoModel;
+use \PDO;
 /**
  * As classes DAO servem para fazer os SQL junto com o banco de dados
  */
@@ -35,7 +40,7 @@ class ProdutoDAO
      * Método que recebe um model e extrai os dados do model para realizar o insert
      * na tabela correspondente ao model. Note o tipo do parâmetro declarado.
      */
-    function insert(PessoaModel $model) 
+    function insert(ProdutoModel $model) 
     {
         // Trecho de código SQL com marcadores ? para substituição posterior, no prepare   
         $sql = "INSERT INTO produto
@@ -64,7 +69,7 @@ class ProdutoDAO
      * Método que recebe o Model preenchido e atualiza no banco de dados.
      * Note que neste model é necessário ter a propriedade id preenchida.
      */
-    public function update(PessoaModel $model)
+    public function update(ProdutoModel $model)
     {
         $sql = "UPDATE produto SET produto=?, codigo_barra=?, data_fabric=? WHERE id=? ";
 

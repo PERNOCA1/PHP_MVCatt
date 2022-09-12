@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Controller;
+
+use App\Model\ProdutoModel;
+
 /**
  * As classes Controller servem para processar os pedidos do usuário.
  * Ou seja o Controller é chamado toda vez que um usúario chamar uma ação de uma classe.

@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Model;
+
+use App\DAO\ProdutoDAO;
+
 class ProdutoModel
 {
     /**

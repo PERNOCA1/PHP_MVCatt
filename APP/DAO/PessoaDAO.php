@@ -9,13 +9,12 @@ use \PDO;
  * As classes DAO (Data Access Object) são responsáveis por executar os
  * SQL junto ao banco de dados.
  */
-class PessoaDAO
+class PessoaDAO extends DAO
 {
     /**
      * Atributo (ou Propriedade) da classe destinado a armazenar o link (vínculo aberto)
      * de conexão com o banco de dados.
      */
-    private $conexao;
 
 
     /**
@@ -26,16 +25,11 @@ class PessoaDAO
      * A conexão é aberta via PDO (PHP Data Object) que é um recurso da linguagem para
      * acesso a diversos SGBDs.
      */
-    function __construct() 
+    public function __construct() 
     {
         // DSN (Data Source Name) onde o servidor MySQL será encontrado
         // (host) em qual porta o MySQL está operado e qual o nome do banco pretendido. 
-        $dsn = "mysql:host=localhost:3307;dbname=db_sistema";
-        $user = "root";
-        $pass = "etecjau";
-        
-        // Criando a conexão e armazenado na propriedade definida para tal.
-        $this->conexao = new PDO($dsn, 'root', 'etecjau');
+        parent::__construct();
     }
 
 
@@ -43,7 +37,7 @@ class PessoaDAO
      * Método que recebe um model e extrai os dados do model para realizar o insert
      * na tabela correspondente ao model. Note o tipo do parâmetro declarado.
      */
-    function insert(PessoaModel $model) 
+    public function insert(PessoaModel $model) 
     {
         // Trecho de código SQL com marcadores ? para substituição posterior, no prepare   
         $sql = "INSERT INTO pessoa 
@@ -124,7 +118,7 @@ class PessoaDAO
         $stmt->bindValue(1, $id);
         $stmt->execute();
 
-        return $stmt->fetchObject("PessoaModel"); // Retornando um objeto específico PessoaModel
+        return $stmt->fetchObject("App\Model\PessoaModel"); // Retornando um objeto específico PessoaModel
     }
 
 
