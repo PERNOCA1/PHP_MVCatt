@@ -26,15 +26,15 @@ switch($url)
         PessoaController::save();
     break;
 
+    case '/pessoa/delete':
+        PessoaController::delete();
+    break;
+
     default:
     echo "erro 404";
     break;
 
     ////////////////////////////////////
-
-    case '/':
-        echo "página inicial";
-    break;
     
     case '/produto':
         ProdutoController::index();

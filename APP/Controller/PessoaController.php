@@ -39,7 +39,8 @@ class PessoaController extends Controller
     /**
      * Preenche um Model para que seja enviado ao banco de dados para salvar.
      */
-    public static function save() {
+    public static function save() 
+    {
 
 
         // Abaixo cada propriedade do objeto sendo abastecida com os dados informados
