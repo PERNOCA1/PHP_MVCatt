@@ -4,12 +4,35 @@ use App\Controller\PessoaController;
 
 use App\Controller\ProdutoController;
 
+use App\Controller\UsuarioController;
+
+use App\Controller\LoginController;
+
 
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch($url)
 {
+
+    case '/usuario':
+        UsuarioController::index();
+    break;
+
+    case '/usuario/form':
+        UsuarioController::form();
+    break;
+
+    case '/usuario/save':
+        UsuarioController::save();
+    break;
+
+    case '/usuario/excluir':
+        UsuarioController::delete();
+    break;
+
+    //////////////////////////////
+
     case '/login':
         LoginController::index();
     break;
